@@ -1,0 +1,6 @@
+/.lake
+__pycache__/
+/paper/build/
+/CLAUDE.md
+/WORKERS.md
+/notes/
