@@ -97,11 +97,11 @@ theorem Delta_eval_eq_det (K : ℕ) : (Delta tR K).eval XiR = (gramR K).det := b
   congr 1
   ext i j
   simp only [RingHom.mapMatrix_apply, Matrix.map_apply, Matrix.add_apply, Matrix.smul_apply,
-    smul_eq_mul, map_add, map_mul, coe_evalRingHom, eval_X, eval_C, hankelLin, hankelConst,
+    smul_eq_mul, map_add, map_mul, coe_evalRingHom, hankelLin, hankelConst,
     Matrix.of_apply, gramR]
   rw [show Lfun (fun y => y ^ (i.val + j.val) / DK K y) = _ from
     (hasL_fraction_DK K (i.val + j.val)).tsum_eq]
-  simp only [eval_add, eval_mul, eval_X, eval_C]
+  simp only [eval_mul, eval_X, eval_C]
   ring
 
 end FibZeta.Analytic
