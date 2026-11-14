@@ -3,13 +3,15 @@ import FibZeta.Analytic.All
 import FibZeta.NonVan.Nonvanishing
 import FibZeta.Conj.ConjBound
 import FibZeta.Cost.CostBound
+import FibZeta.Denom.Integrality
 
 /-!
-# The theorem, modulo `Integrality`
+# The theorem: `∑ 1/F_n³` is irrational
 
 Combines the proved ingredients `DecayBound` (`FibZeta.Analytic.decayBound`), `ConjBound`
-(`FibZeta.Conj.conjBound`), `CostBound` (`FibZeta.Cost.costBound`) and `Nonvanishing`
-(`FibZeta.NonVan.nonvanishing`) with the assembly `FibZeta.irrational_zetaF3_of`.
+(`FibZeta.Conj.conjBound`), `Integrality` (`FibZeta.Denom.integrality`), `CostBound`
+(`FibZeta.Cost.costBound`) and `Nonvanishing` (`FibZeta.NonVan.nonvanishing`) with the assembly
+`FibZeta.irrational_zetaF3_of`.
 -/
 
 namespace FibZeta
@@ -25,5 +27,9 @@ theorem hasSum_zetaF3 : HasSum (fun n : ℕ => 1 / ((Nat.fib (n + 1) : ℕ) : �
 
 theorem irrational_zetaF3_of_integrality (hI : Integrality) : Irrational zetaF3 :=
   irrational_zetaF3_of Analytic.decayBound Conj.conjBound hI Cost.costBound NonVan.nonvanishing
+
+/-- **Main theorem.** `ζ_F(3) = ∑_{n ≥ 1} 1/F_n³` is irrational. -/
+theorem irrational_zetaF3 : Irrational zetaF3 :=
+  irrational_zetaF3_of_integrality Denom.integrality
 
 end FibZeta
