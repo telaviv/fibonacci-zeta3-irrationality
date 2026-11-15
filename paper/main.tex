@@ -126,7 +126,8 @@ $-\zeta^2$ has small order and those for which $-\zeta(-\zeta^2)^k=1$; we prove 
 formal proof is self-contained.
 
 \subsection*{Formal verification}
-The theorem and every step of its proof are formalised in Lean~4 with Mathlib; Section~\ref{sec:lean} gives the
+The theorem and every step of its proof are formalised in Lean~4 with Mathlib
+(\url{https://github.com/telaviv/fibonacci-zeta3-irrationality}); Section~\ref{sec:lean} gives the
 statement, the map from the propositions below to Lean declarations, and what has to be trusted. The formal proof uses
 the elementary denominator constant $c_*=\frac{11}8\beta_7+\frac13=\frac{4393}{3675}$ of Proposition~\ref{prop:cost},
 where $\beta_7=\prod_{p\le7}(1-p^{-2})$; it needs no information on the distribution of Euler's function beyond a
@@ -516,7 +517,11 @@ The scripts are available from the author.
 \section{Formal verification}\label{sec:lean}
 % ===========================================================================
 
-The Lean development (library \lean{FibZeta}, Lean~4.35.0, Mathlib v4.35.0, about 8500 lines) proves
+The Lean development is the repository
+\begin{center}
+\url{https://github.com/telaviv/fibonacci-zeta3-irrationality};
+\end{center}
+all file names below refer to it. It (library \lean{FibZeta}, Lean~4.35.0, Mathlib v4.35.0, about 8500 lines) proves
 \begin{center}
 \lean{theorem FibZeta.irrational\_zetaF3 : Irrational FibZeta.zetaF3},
 \end{center}
